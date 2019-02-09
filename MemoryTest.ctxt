@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=MemoryTest
+comment0.text=\n\ The\ test\ class\ MemoryTest.\n\n\ @author\ \ (Davis\ on\ 20190208)\n
+comment1.params=
+comment1.target=MemoryTest()
+comment1.text=\n\ Default\ constructor\ for\ test\ class\ MemoryTest\n
+comment2.params=
+comment2.target=void\ testGetMemory()
+comment3.params=
+comment3.target=void\ testGetM()
+numComments=4
