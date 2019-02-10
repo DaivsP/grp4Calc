@@ -43,7 +43,7 @@ public class Display {
      * @return user's input as String
      */
     public String getStringInput(String prompt, Object... args) {
-        print(prompt);
+        println(prompt);
         
         return scanner.next();
     }
