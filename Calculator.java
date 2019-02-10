@@ -1,60 +1,60 @@
-import java.lang.Math;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
-public class Calculator {
+public class Calculator
+{
+    // instance variables - replace the example below with your own
+    //private int x;
+
+    /**
+     * Constructor for objects of class Calculator
+     */
+    public Calculator()
+    {
+  
+    }
+
   public static void main (String[] args){
-      boolean go = true;
-      Scanner scanner1 = new Scanner(System.in);
-      Scanner scanner2 = new Scanner(System.in);
-      Scanner scanner3 = new Scanner(System.in);
-      int s = 0;
-      int rem = 0;
-      while(go) {
-      System.out.println("Number 1 please.");
-      int i1 = scanner1.nextInt();
+    Memory memory = new Memory();
+    BasicMath basicMath = new BasicMath();
+    CalcTrig calcTrig = new CalcTrig();
+    Display display = new Display();
+    double ans;
+    double p1 = display.getDoubleInput("Please type first number.");
+    double p2 = display.getDoubleInput("Please type second number.");
+    String operator;
+    while(true){
+     ans = 0;
+     
+     operator = display.getStringInput("Please type operator. (+,-,*,/)");
+     
+     
+     switch (operator) {
+      case "+":
+      ans = basicMath.add(p1,p2);
+      break;
       
-      System.out.println("Number 2 please.");
-      int i2 = scanner1.nextInt();
+      case "-":
+      ans = basicMath.subtract(p1,p2);
+      break;
       
-      System.out.println("Please type operator sign (+,-,*,/)");
-      String sign = scanner3.nextLine();
+      case "*":
+      ans = basicMath.multiply(p1,p2);
+      break;
       
+      case "/":
+      ans = basicMath.divide(p1,p2);
+      break;
       
-      if(sign.equals("+")){
-          s = (i1 + i2); 
-          System.out.println(s);
+      default:
+      display.println("Pick a valid operator.");
         }
-        else if(sign.equals("-")){
-          s = (i1 - i2);   
-          System.out.println(s);
+     display.println("" + ans);
+     if(display.getStringInput("Type \"stop\" to end.").equalsIgnoreCase("stop")){
+      break;
         }
-        else if(sign.equals("*")){
-          s = (i1 * i2); 
-          System.out.println(s);
-        }
-        else if(sign.equals("/")){
-          s = (i1 / i2);
-          rem = (i1 % i2);
-          System.out.println("" + s + " remainder: " + rem);
-        }
-        else{
-           System.out.println("Sign not recognized"); 
-        }
-    
- 
-      System.out.println("Type yes to continue");
-      String brk = scanner2.nextLine();
-      if(brk.equalsIgnoreCase("yes")){
-          System.out.println("Ok, let's go again");
-          System.out.println("");
-        }
-        else{
-         go = false;   
-        }
-      
+     
     }
-      
     }
-    
-    
-    
 }

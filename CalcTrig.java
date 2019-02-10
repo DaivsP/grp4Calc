@@ -61,7 +61,7 @@ public class CalcTrig
         inversesin = Math.asin(num1);
         
          
-         System.out.println(inversesin);
+         
     }
         
         return inversesin;
@@ -79,7 +79,7 @@ public class CalcTrig
         inversecos = Math.acos(num1);
         
         
-         System.out.println(inversecos);
+        
     }
         
         return inversecos;
@@ -97,7 +97,7 @@ public class CalcTrig
          inversetan = Math.atan(num1);
         
         
-         System.out.println(inversetan);
+         
          
     }
         
