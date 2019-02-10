@@ -11,6 +11,7 @@ public class BasicMath
     public double input1 = 0;
     public double input2 = 0;
     public double answer = 0;
+    private double exponent = 2;
     /**
      * Constructor for objects of class BasicMath
      */
@@ -45,7 +46,7 @@ public class BasicMath
     }
     
     public double square(double input1){
-        answer = Math.pow(input1, 2);
+        answer = Math.pow(input1,2);
         return answer;
     }
     
