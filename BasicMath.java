@@ -98,7 +98,7 @@ public class BasicMath
      
      while(true){
      double ans = 0;
-     operator = display.getStringInput("Please enter an operator(+,-,*,/). Enter \"menu\" to return to the main menu.");
+     operator = display.getStringInput("Please enter an operator(+,-,*,/,^2,sqrt,^,1/,reverse). Enter \"menu\" to return to the main menu.");
      switch (operator) {
       case "+":
       ans = add(display.getDoubleInput("Please type first number."),
@@ -121,6 +121,32 @@ public class BasicMath
       case "/":
       ans = divide(display.getDoubleInput("Please type first number."),
       display.getDoubleInput("Please type second number."));
+      display.println("" + ans);
+      break;
+      
+      case "^2":
+      ans = square(display.getDoubleInput("Please type first number."));
+      display.println("" + ans);
+      break;
+      
+      case "sqrt":
+      ans = squareRoot(display.getDoubleInput("Please type first number."));
+      display.println("" + ans);
+      break;
+      
+      case "^":
+      ans = exponent(display.getDoubleInput("Please type first number."),
+      display.getDoubleInput("Please type second number."));
+      display.println("" + ans);
+      break;
+      
+      case "1/":
+      ans = inverse(display.getDoubleInput("Please type first number."));
+      display.println("" + ans);
+      break;
+      
+      case "reverse":
+      ans = reverseAnswer(display.getDoubleInput("Please type first number."));
       display.println("" + ans);
       break;
       
