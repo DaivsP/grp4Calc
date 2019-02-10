@@ -69,7 +69,28 @@ public class BasicMath
         answer = -input1;
         return answer;
     }
-    
+    /** Below I created a method that the Calculator class will call in it's main loop.
+     * It accesses the Display class by creating a new Display() in the first line.
+     * 
+     * Then it prints out the name of the calc, blah blah
+     * The operator string is then initated as nothing because it will change
+     * 
+     * Next, I created the main loop THIS basic math calc will run when accesed through the Calculator class.
+     * 
+     * first the calc will resent any previously stored answer 
+     * Then it will ask the user for a operator input so it knows which math method to use
+     * 
+     * the switch below it cycles through all the operators, finding which one the user enetered and performs 
+     * proper method
+     * 
+     * The default case for this switch will ask the user to input a valid operator if they type in anything that isn't
+     * something the switch is looking for
+     * 
+     * Once the math is done it will output the answer nd ask the user to type menu if they wish to return back to main menu
+     * 
+     * If they type menu, the while loop is broken and the method will terminate allowing the program to return back to
+     * the start of the main Calculator method
+     */
     public void run(){
      Display display = new Display();
      display.println("Basic Math Calculator");
