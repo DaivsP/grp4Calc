@@ -69,4 +69,47 @@ public class BasicMath
         answer = -input1;
         return answer;
     }
+    
+    public void run(){
+     Display display = new Display();
+     display.println("Basic Math Calculator");
+     String operator = "";
+     
+     while(true){
+     double ans = 0;
+     operator = display.getStringInput("Please enter an operator(+,-,*,/). Enter \"menu\" to return to the main menu.");
+     switch (operator) {
+      case "+":
+      ans = add(display.getDoubleInput("Please type first number."),
+      display.getDoubleInput("Please type second number."));
+      display.println("" + ans);
+      break;
+      
+      case "-":
+      ans = subtract(display.getDoubleInput("Please type first number."),
+      display.getDoubleInput("Please type second number."));
+      display.println("" + ans);
+      break;
+      
+      case "*":
+      ans = multiply(display.getDoubleInput("Please type first number."),
+      display.getDoubleInput("Please type second number."));
+      display.println("" + ans);
+      break;
+      
+      case "/":
+      ans = divide(display.getDoubleInput("Please type first number."),
+      display.getDoubleInput("Please type second number."));
+      display.println("" + ans);
+      break;
+      
+      default:
+      display.println("Pick a valid operator.");
+        }
+     
+     if(display.getStringInput("Type \"menu\" to return to the main menu. Any other entry will retuen to basic math").equalsIgnoreCase("menu")){
+      break;
+        }
+    }
+    }
 }
