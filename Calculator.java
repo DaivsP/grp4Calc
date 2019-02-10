@@ -7,6 +7,7 @@ public class Calculator
 {
     // instance variables - replace the example below with your own
     //private int x;
+    private int num1;
 
     /**
      * Constructor for objects of class Calculator
@@ -41,7 +42,7 @@ public class Calculator
      break;
      
      case "b":
-     
+     calcTrig.run();
      break;
      
      case "c":
