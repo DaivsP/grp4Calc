@@ -2,6 +2,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
+import java.util.ArrayList;
 public class Calculator
 {
     // instance variables - replace the example below with your own
@@ -20,47 +21,39 @@ public class Calculator
     BasicMath basicMath = new BasicMath();
     CalcTrig calcTrig = new CalcTrig();
     Display display = new Display();
+    boolean go = true;
     double ans;
     String operator;
-    while(true){
+    String mode;
+    display.println("Welcome to the group 4 scientific calculator!");
+    while(go == true){
      ans = 0;
      
-     operator = display.getStringInput("Please type operator. (+,-,*,/)");
+     mode = display.getStringInput("Select calculator mode by entering the letter associated: %n", 
+     "a: Basic math %n",
+     "b: Trig %n",
+     "c: Output options");
      
+     switch (mode){
      
-     switch (operator) {
-      case "+":
-      ans = basicMath.add(display.getDoubleInput("Please type first number."),
-      display.getDoubleInput("Please type second number."));
-      display.println("" + ans);
-      break;
-      
-      case "-":
-      ans = basicMath.subtract(display.getDoubleInput("Please type first number."),
-      display.getDoubleInput("Please type second number."));
-      display.println("" + ans);
-      break;
-      
-      case "*":
-      ans = basicMath.multiply(display.getDoubleInput("Please type first number."),
-      display.getDoubleInput("Please type second number."));
-      display.println("" + ans);
-      break;
-      
-      case "/":
-      ans = basicMath.divide(display.getDoubleInput("Please type first number."),
-      display.getDoubleInput("Please type second number."));
-      display.println("" + ans);
-      break;
-      
-      default:
-      display.println("Pick a valid operator.");
-        }
+     case "a":
+     basicMath.run();
+     break;
      
-     if(display.getStringInput("Type \"stop\" to end.").equalsIgnoreCase("stop")){
-      break;
-        }
+     case "b":
+     
+     break;
+     
+     case "c":
+     
+     break;
+     
+     case "stop":
+     go = false;
+     break;
      
     }
+    
     }
+}
 }
