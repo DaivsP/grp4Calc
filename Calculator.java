@@ -30,10 +30,7 @@ public class Calculator
     while(go == true){
      ans = 0;
      
-     mode = display.getStringInput("Select calculator mode by entering the letter associated: %n", 
-     "a: Basic math %n",
-     "b: Trig %n",
-     "c: Output options");
+     mode = display.getStringInput("Select calculator mode by entering the letter associated: %n a: Basic math %n b: Trig %n c: Output options %n Type \"stop\" to exit");
      
      switch (mode){
      
@@ -53,6 +50,9 @@ public class Calculator
      go = false;
      break;
      
+     default:
+     display.println("Invalid mode selected, choose from available options.");
+     break;
     }
     
     }

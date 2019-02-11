@@ -12,6 +12,8 @@ public class BasicMath
     public double input2 = 0;
     public double answer = 0;
     private double exponent = 2;
+    public double ans = 0;
+    public double[] mem = new double[1];
     /**
      * Constructor for objects of class BasicMath
      */
@@ -69,6 +71,10 @@ public class BasicMath
         answer = -input1;
         return answer;
     }
+    
+    public void commitMemory(){
+     mem[0] = ans;   
+    }
     /** Below I created a method that the Calculator class will call in it's main loop.
      * It accesses the Display class by creating a new Display() in the first line.
      * 
@@ -95,68 +101,101 @@ public class BasicMath
      Display display = new Display();
      display.println("Basic Math Calculator");
      String operator = "";
+     boolean go = true;
+     display.println("Please enter an operator(+,-,*,/,^2,sqrt,^,1/,reverse). %n Enter \"menu\" to return to the main menu. %n Enter 'c' to clear your current number %n Enter 'mrc' to set your number to last answer in memory %n Enter 'm+' to add current number to last number in memory %n Enter 'mc' to clear memory");
+     while(go){
      
-     while(true){
-     double ans = 0;
-     operator = display.getStringInput("Please enter an operator(+,-,*,/,^2,sqrt,^,1/,reverse). Enter \"menu\" to return to the main menu.");
+     operator = display.getStringInput("Your current number is: " + ans);
+     
      switch (operator) {
       case "+":
-      ans = add(display.getDoubleInput("Please type first number."),
-      display.getDoubleInput("Please type second number."));
-      display.println("" + ans);
+      commitMemory();
+      ans = add(ans,
+      display.getDoubleInput("Please type number to add."));
+      
       break;
       
       case "-":
-      ans = subtract(display.getDoubleInput("Please type first number."),
-      display.getDoubleInput("Please type second number."));
-      display.println("" + ans);
+      commitMemory();
+      ans = subtract(ans,
+      display.getDoubleInput("Please type number to subtract."));
+      
       break;
       
       case "*":
-      ans = multiply(display.getDoubleInput("Please type first number."),
-      display.getDoubleInput("Please type second number."));
-      display.println("" + ans);
+      commitMemory();
+      ans = multiply(ans,
+      display.getDoubleInput("Please type number to multiply by"));
+      
       break;
       
       case "/":
-      ans = divide(display.getDoubleInput("Please type first number."),
-      display.getDoubleInput("Please type second number."));
-      display.println("" + ans);
+      commitMemory();
+      ans = divide(ans,
+      display.getDoubleInput("Please type divisor."));
+      
       break;
       
       case "^2":
-      ans = square(display.getDoubleInput("Please type first number."));
-      display.println("" + ans);
+      commitMemory();
+      ans = square(ans);
+      
       break;
       
       case "sqrt":
-      ans = squareRoot(display.getDoubleInput("Please type first number."));
-      display.println("" + ans);
+      commitMemory();
+      ans = squareRoot(ans);
+      
       break;
       
       case "^":
-      ans = exponent(display.getDoubleInput("Please type first number."),
-      display.getDoubleInput("Please type second number."));
-      display.println("" + ans);
+      commitMemory();
+      ans = exponent(ans,
+      display.getDoubleInput("Please type power."));
+      
       break;
       
       case "1/":
-      ans = inverse(display.getDoubleInput("Please type first number."));
-      display.println("" + ans);
+      commitMemory();
+      ans = inverse(ans);
+      
       break;
       
       case "reverse":
-      ans = reverseAnswer(display.getDoubleInput("Please type first number."));
-      display.println("" + ans);
+      commitMemory();
+      ans = reverseAnswer(ans);
+      
+      break;
+      
+      case "c":
+      
+      ans = 0;
+      break;
+      
+      case "mc":
+      
+      mem[0] = 0;
+      break;
+      
+      case "m+":
+      
+      ans = add(ans, mem[0]);
+      break;
+      
+      case "mrc":
+      ans = mem[0];
+      break;
+      
+      case "menu":
+      go = false;
       break;
       
       default:
       display.println("Pick a valid operator.");
-        }
-     
-     if(display.getStringInput("Type \"menu\" to return to the main menu. Any other entry will retuen to basic math").equalsIgnoreCase("menu")){
       break;
         }
+     
+
     }
     }
 }
