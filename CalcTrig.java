@@ -8,7 +8,7 @@
 public class CalcTrig
 {
   
-    
+    public double answertrig = 0;
     
 
     /**
@@ -28,8 +28,8 @@ public class CalcTrig
      */
     public double calcSin(double num1)
     {
-        double Sine = Math.sin(num1);
-        return Sine;
+         answertrig = Math.sin(num1);
+        return answertrig;
         
     }
     
@@ -37,38 +37,38 @@ public class CalcTrig
      
     public double calcCos(double num1)
     {
-        double cos = Math.cos(num1);
-        return cos;
+         answertrig = Math.cos(num1);
+        return answertrig;
        
     }
     
     
     public double calcTan(double num1)
     {
-        double tan = Math.tan(num1);
-        return tan;
+         answertrig = Math.tan(num1);
+        return answertrig;
     }
     
     public double inverseSine(double num1){
-    double inversesin=0;
+    double answertrig=0;
     
         if (num1 >1){
             
-       System.out.println("Value is Greater that 1 Please enter in 0.00");  
+       System.out.println("Value is Greater that 1 Please enter in 0.00 format");  
         }
         else
         {
-        inversesin = Math.asin(num1);
+        answertrig = Math.asin(num1);
         
          
          
     }
         
-        return inversesin;
+        return answertrig;
     }
     
     public double inverseCos(double num1){
-    double inversecos=0;
+    double answertrig=0;
     
         if (num1 >1){
             
@@ -76,17 +76,17 @@ public class CalcTrig
         }
         else
         {
-        inversecos = Math.acos(num1);
+        answertrig = Math.acos(num1);
         
         
         
     }
         
-        return inversecos;
+        return answertrig;
     }
     
      public double inverseTan(double num1){
-    double inversetan=0;
+    double answertrig=0;
     
         if (num1 >1){
             
@@ -94,33 +94,73 @@ public class CalcTrig
         }
         else
         {
-         inversetan = Math.atan(num1);
+         answertrig = Math.atan(num1);
         
         
          
          
     }
         
-        return inversetan;
+        return answertrig;
     }
-    public static void main(String[] args)
-    {
-     CalcTrig ct = new CalcTrig();
+    
      
-     double resultsin  = ct.calcSin(35);
-     System.out.println(resultsin);
-     double resultcos  = ct.calcCos(35);
-     System.out.println(resultcos);
-     double resulttan  = ct.calcTan(35);
-     System.out.println(resulttan);
-     double inversesin  = ct.inverseSine(0.25);
-     double inversecos  = ct.inverseCos(0.25);
-     double inversetan  = ct.inverseTan(0.25);
+     public void run(){
+     Display display = new Display();
+     display.println("Trig calculation");
+     String operator = "";
      
+     while(true){
+     double ans = 0;
+     operator = display.getStringInput("Please enter Trig operator(sin,cos,tan,asin,acos,atan). Enter \"menu\" to return to the main menu.");
+     switch (operator) {
+      case "sin":
+      ans = calcSin(display.getDoubleInput("Please type a number."));
+      
+      display.println("" + ans);
+      break;
+      
+      case "cos":
+      ans = calcCos(display.getDoubleInput("Please type a number."));
+      
+      display.println("" + ans);
+      break;
+      
+      
+      case "tan":
+      ans = calcTan(display.getDoubleInput("Please type  number."));
+      
+      display.println("" + ans);
+      break;
+      
+      case "asin":
+      ans = inverseSine(display.getDoubleInput("Please type a number."));
+      
+      display.println("" + ans);
+      break;
+      case "acos":
+      ans = inverseCos(display.getDoubleInput("Please type a number."));
+      
+      display.println("" + ans);
+      break;
+      case "atan":
+      ans = inverseTan(display.getDoubleInput("Please type a number."));
+      
+      display.println("" + ans);
+      break;
+      
+      default:
+      display.println("Pick a valid operator.");
+        }
      
-     
-     
-     
-        
+     if(display.getStringInput("Type \"menu\" to return to the main menu. Any other entry will return to basic math").equalsIgnoreCase("menu")){
+      break;
+        }
+    }
     }
 }
+
+     
+        
+    
+
